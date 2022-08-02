@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model users {
+model User {
   id            Int      @id @default(autoincrement())
   bride         String?
   groom         String?
@@ -15,5 +15,9 @@ model users {
   groomEmail    String?  @unique
   bridePassword String?
   groomPassword String?
-  createdAt     DateTime @default(dbgenerated("'2022-08-02 16:09:43.655206'::timestamp without time zone")) @db.Timestamp(6)
+  createdAt     DateTime @default(now()) @db.Timestamp(6)
+
+  @@map("users")
 }
+
+
