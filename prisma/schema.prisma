@@ -8,14 +8,13 @@ datasource db {
 }
 
 model User {
-  id            Int      @id @default(autoincrement())
-  bride         String?
-  groom         String?
-  brideEmail    String?  @unique
-  groomEmail    String?  @unique
-  bridePassword String?
-  groomPassword String?
-  createdAt     DateTime @default(now()) @db.Timestamp(6)
+  id               Int      @id @default(autoincrement())
+  partner1         String
+  partner2         String
+  partner1Email    String   @unique
+  partner2Email    String?  @unique
+  password         String
+  createdAt        DateTime @default(now()) @db.Timestamp(6)
 
   @@map("users")
 }

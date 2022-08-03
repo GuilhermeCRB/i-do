@@ -3,25 +3,21 @@ import Joi from "joi";
 import { CreateUser } from "../services/accessService.js";
 
 export const signUpProperties = [
-    "bride", 
-    "groom", 
-    "brideEmail", 
-    "groomEmail", 
-    "bridePassword", 
-    "groomPassword", 
-    "repeatedBridePassword", 
-    "repeatedGroomPassword"
+    "partner1", 
+    "partner2", 
+    "partner1Email", 
+    "partner2Email", 
+    "password", 
+    "repeatedPassword" 
 ];
 
 const signUpSchema = Joi.object<CreateUser>({
-    bride: Joi.string(),
-    groom: Joi.string(),
-    brideEmail: Joi.string().email(),
-    groomEmail: Joi.string().email(),
-    bridePassword: Joi.string(),
-    groomPassword: Joi.string(),
-    repeatedBridePassword: Joi.ref('bridePassword'),
-    repeatedGroomPassword: Joi.ref('groomPassword')
+    partner1: Joi.string().required(),
+    partner2: Joi.string().required(),
+    partner1Email: Joi.string().email().required(),
+    partner2Email: Joi.string().email(),
+    password: Joi.string().required(),
+    repeatedPassword: Joi.ref('password')
 });
 
 export default signUpSchema;
