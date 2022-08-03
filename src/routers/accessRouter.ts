@@ -1,13 +1,15 @@
 import { Router } from "express";
 
 import { sanitizeInputs } from "../middlewares/sanitizeInputs.js";
-import { userProperties } from "../schemas/userSchema.js";
+import signUpSchema, { signUpProperties } from "../schemas/userSchema.js";
 import { signUp } from "../controllers/accessController.js"
+import { validateSchema } from "./validateSchema.js";
 
 const access = Router();
 
 access.post("/sign-up",
-    sanitizeInputs(userProperties),
+    sanitizeInputs(signUpProperties),
+    validateSchema(signUpSchema),
     signUp
 );
 
