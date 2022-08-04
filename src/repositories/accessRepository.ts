@@ -8,8 +8,8 @@ async function saveUserData(userData: CreateUser) {
     });
 }
 
-async function getUserByEmail(partner1Email: string, partner2Email: string) {
-    return await db.user.findMany({
+async function findByEmail(partner1Email: string, partner2Email: string) {
+    return await db.user.findFirst({
         where: {
             OR: [
                 { partner1Email }, 
@@ -21,8 +21,20 @@ async function getUserByEmail(partner1Email: string, partner2Email: string) {
     });
 }
 
+async function getUserByEmail(email: string) {
+    return await db.user.findFirst({
+        where: {
+            OR: [
+                { partner1Email: email }, 
+                { partner2Email: email }
+            ]
+        }
+    });
+}
+
 const accessRepository = {
     saveUserData,
+    findByEmail,
     getUserByEmail
 }
 
