@@ -1,0 +1,19 @@
+*{
+  box-sizing: border-box;
+
+  --background-page: #333333;
+  --background-color:#151515;
+  --background-color-header:#333333;
+  --background-input: #EFEFEF;
+  --background-button: #1877F2;
+  --background-post-url: #FFFFFF;
+  --post-color: #707070;
+  --placeholder-color: #949494;
+  --button-text: #FFFFFF;
+
+  --main-font: '';
+}
+
+html, body, .root{
+  background-color: var(--background-page);
+};
