@@ -5,6 +5,7 @@ import styled from "styled-components";
 import axios from "axios";
 
 import UrlContext from "../../../Contexts/UrlContext.js";
+import { UserContext } from "../../../Contexts/UserContext.js";
 
 export default function SignInForm() {
   const user = {
@@ -12,19 +13,24 @@ export default function SignInForm() {
     password: '',
   };
 
+  const BASE_BACK_URL = useContext(UrlContext);
+  const { setToken } = useContext(UserContext);
+
   const navigate = useNavigate();
   const [userData, setUserData] = useState(user);
   const [formState, setFormState] = useState(false);
-  const BASE_BACK_URL = useContext(UrlContext);
 
   function sendData(e) {
     e.preventDefault();
     setFormState(true);
+    console.log(userData)
 
     const URL = BASE_BACK_URL + 'sign-in';
     const promise = axios.post(URL, userData);
 
-    promise.then(() => {
+    promise.then(({ data }) => {
+      localStorage.setItem("i_do_token", data.token);
+      setToken(data.token);
       navigate('/');
     });
 
@@ -44,8 +50,8 @@ export default function SignInForm() {
           type='email'
           placeholder="email"
           disabled={formState}
-          value={userData.partner1Email}
-          onChange={e => setUserData({ ...userData, partner1Email: e.target.value })}
+          value={userData.email}
+          onChange={e => setUserData({ ...userData, email: e.target.value })}
         />
         <input
           required
