@@ -95,7 +95,7 @@ export default function SignUpForm() {
           {formState ? <TailSpin color="#FFF" /> : "Sign up"}
         </button>
       </Form>
-      <Link onClick={() => navigate('/')}>Already have an account? Sign in to begin planning your wedding!</Link>
+      <Link onClick={() => navigate('/sign-in')}>Already have an account? Sign in to begin planning your wedding!</Link>
     </>
 
   )
