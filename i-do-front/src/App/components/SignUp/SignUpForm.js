@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { TailSpin } from "react-loader-spinner";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -17,72 +18,82 @@ export default function SignUpForm() {
 
   const navigate = useNavigate();
   const [userData, setUserData] = useState(user);
-  const [buttonState, setButtonState] = useState(false);
-  const BASE_URL = useContext(UrlContext);
+  const [formState, setFormState] = useState(false);
+  const BASE_BACK_URL = useContext(UrlContext);
 
   function sendData(e) {
     e.preventDefault();
-    setButtonState(true);
+    setFormState(true);
 
-    // const URL = BASE_URL + 'sign-up';
-    // const promise = axios.post(URL, userData);
+    const URL = BASE_BACK_URL + 'sign-up';
+    const promise = axios.post(URL, userData);
 
-    // promise.then(() => {
-    //   navigate('/');
-    // });
+    promise.then(() => {
+      navigate('/');
+    });
 
-    // promise.catch(err => {
-    //   alert(err.response.data);
-    //   console.log(err);
-    // });
+    promise.catch(err => {
+      alert(err.response.data);
+      console.log(err);
+      setFormState(false);
+    });
 
   };
 
   return (
     <>
       <Form onSubmit={sendData}>
-        <input 
-          required 
+        <input
+          required
           type='text'
           placeholder="name"
-          value={userData.partner1} 
+          disabled={formState}
+          value={userData.partner1}
           onChange={e => setUserData({ ...userData, partner1: e.target.value })}
         />
-        <input 
-          required 
+        <input
+          required
           type='text'
           placeholder="partner's name"
-          value={userData.partner2} 
+          disabled={formState}
+          value={userData.partner2}
           onChange={e => setUserData({ ...userData, partner2: e.target.value })}
         />
-        <input 
-          required 
-          type='text'
+        <input
+          required
+          type='email'
           placeholder="email"
-          value={userData.partner1Email} 
+          disabled={formState}
+          value={userData.partner1Email}
           onChange={e => setUserData({ ...userData, partner1Email: e.target.value })}
         />
-       <input 
-          required 
-          type='text'
+        <input
+          required
+          type="email"
           placeholder="partner's email"
-          value={userData.partner2Email} 
+          disabled={formState}
+          value={userData.partner2Email}
           onChange={e => setUserData({ ...userData, partner2Email: e.target.value })}
         />
         <input
           required
-          type='password' 
+          type='password'
           placeholder="password"
-          value={userData.password} 
+          disabled={formState}
+          value={userData.password}
           onChange={e => setUserData({ ...userData, password: e.target.value })}
         />
         <input
           required
-          type='password' 
+          type='password'
           placeholder="repeat your password"
-          value={userData.repeatedPassword} 
+          disabled={formState}
+          value={userData.repeatedPassword}
           onChange={e => setUserData({ ...userData, repeatedPassword: e.target.value })}
         />
+        <button type="submit" disabled={formState}>
+          {formState ? <TailSpin color="#FFF" /> : "Sign up"}
+        </button>
       </Form>
       <Link onClick={() => navigate('/')}>Already have an account? Sign in to begin planning your wedding!</Link>
     </>
@@ -104,6 +115,7 @@ const Form = styled.form`
     padding: 4% 2.5%;
     font-weight: 700; 
     font-size: 18px;
+    color: var(--placeholder-color);
     background-color: var(--background-input);
 
     ::placeholder{
@@ -113,13 +125,20 @@ const Form = styled.form`
   }
 
   button{
+    padding: 2% 0;
     border: none;
     border-radius: 6px;
-    background-color: rgba(24, 119, 242, 1);
-    color: #fff;
+    background-color: var(--background-button);
+    color: var(--background-input);
     font-size: 22px;
     font-weight: 700;  
     font-family: var(--input-font);
+    
+    svg{
+      margin: auto;
+      width: 25px;
+      height: 25px;
+    }
 
     :hover{
       cursor:pointer;

@@ -5,20 +5,20 @@
   --background-page: #BACBD9;
   --background-input: #FFF;
   --placeholder-color: #BACBD9;
-  --link-color: #FFF;
+  --link-color: #402A22;
+  --background-button: #590902;
 
   --background-color:#151515;
   --background-color-header:#333333;
-  --background-button: #1877F2;
   --background-post-url: #FFFFFF;
   --post-color: #707070;
   --button-text: #FFFFFF;
 
-  --main-font: '';
+  --main-font: 'Ubuntu';
 }
 
 html, body, .root{
-  
+  font-family: var(--main-font);
   background-color: var(--background-page);
 };
 
