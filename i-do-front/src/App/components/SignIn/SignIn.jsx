@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import SignInForm from "./SignInForm.js";
+
+import SignInForm from "./SignInForm";
 
 export default function SignIn() {
     return (

@@ -2,17 +2,13 @@
   box-sizing: border-box;
 
   --background-access: #590902;
-  --background-page: #BACBD9;
-  --background-input: #FFF;
-  --placeholder-color: #BACBD9;
-  --link-color: #402A22;
   --background-button: #590902;
-
-  --background-color:#151515;
-  --background-color-header:#333333;
-  --background-post-url: #FFFFFF;
-  --post-color: #707070;
-  --button-text: #FFFFFF;
+  --background-header: #590902;
+  --background-page: #BACBD9;
+  --placeholder-color: #BACBD9;
+  --background-input: #FFF;
+  --icon-color: #8C7561;
+  --link-color: #402A22;
 
   --main-font: 'Ubuntu';
 }

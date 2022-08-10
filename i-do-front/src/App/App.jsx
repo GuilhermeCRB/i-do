@@ -1,12 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute.js";
-import SignUp from "./components/SignUp/SignUp.js";
-import SignIn from "./components/SignIn/SignIn.js";
-import Home from "./components/Home/Home.js";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import SignUp from "./components/SignUp/SignUp";
+import SignIn from "./components/SignIn/SignIn";
+import Header from "./components/Header/Header";
+import Home from "./components/Home/Home";
 
-import { UserProvider } from "../Contexts/UserContext.js";
-import UrlContext from "../Contexts/UrlContext.js";
+import { UserProvider } from "../Contexts/UserContext";
+import UrlContext from "../Contexts/UrlContext";
 
 function App() {
   const BASE_BACK_URL = "http://localhost:5002/";

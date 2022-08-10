@@ -4,33 +4,31 @@ import { TailSpin } from "react-loader-spinner";
 import styled from "styled-components";
 import axios from "axios";
 
-import UrlContext from "../../../Contexts/UrlContext.js";
-import { UserContext } from "../../../Contexts/UserContext.js";
+import UrlContext from "../../../Contexts/UrlContext";
 
-export default function SignInForm() {
+export default function SignUpForm() {
   const user = {
-    email: '',
+    partner1: '',
+    partner2: '',
+    partner1Email: '',
+    partner2Email: '',
     password: '',
+    repeatedPassword: ''
   };
-
-  const BASE_BACK_URL = useContext(UrlContext);
-  const { setToken } = useContext(UserContext);
 
   const navigate = useNavigate();
   const [userData, setUserData] = useState(user);
   const [formState, setFormState] = useState(false);
+  const BASE_BACK_URL = useContext(UrlContext);
 
   function sendData(e) {
     e.preventDefault();
     setFormState(true);
-    console.log(userData)
 
-    const URL = BASE_BACK_URL + 'sign-in';
+    const URL = BASE_BACK_URL + 'sign-up';
     const promise = axios.post(URL, userData);
 
-    promise.then(({ data }) => {
-      localStorage.setItem("i_do_token", data.token);
-      setToken(data.token);
+    promise.then(() => {
       navigate('/');
     });
 
@@ -47,11 +45,35 @@ export default function SignInForm() {
       <Form onSubmit={sendData}>
         <input
           required
+          type='text'
+          placeholder="name"
+          disabled={formState}
+          value={userData.partner1}
+          onChange={e => setUserData({ ...userData, partner1: e.target.value })}
+        />
+        <input
+          required
+          type='text'
+          placeholder="partner's name"
+          disabled={formState}
+          value={userData.partner2}
+          onChange={e => setUserData({ ...userData, partner2: e.target.value })}
+        />
+        <input
+          required
           type='email'
           placeholder="email"
           disabled={formState}
-          value={userData.email}
-          onChange={e => setUserData({ ...userData, email: e.target.value })}
+          value={userData.partner1Email}
+          onChange={e => setUserData({ ...userData, partner1Email: e.target.value })}
+        />
+        <input
+          required
+          type="email"
+          placeholder="partner's email"
+          disabled={formState}
+          value={userData.partner2Email}
+          onChange={e => setUserData({ ...userData, partner2Email: e.target.value })}
         />
         <input
           required
@@ -61,12 +83,21 @@ export default function SignInForm() {
           value={userData.password}
           onChange={e => setUserData({ ...userData, password: e.target.value })}
         />
+        <input
+          required
+          type='password'
+          placeholder="repeat your password"
+          disabled={formState}
+          value={userData.repeatedPassword}
+          onChange={e => setUserData({ ...userData, repeatedPassword: e.target.value })}
+        />
         <button type="submit" disabled={formState}>
-          {formState ? <TailSpin color="#FFF" /> : "Sign in"}
+          {formState ? <TailSpin color="#FFF" /> : "Sign up"}
         </button>
       </Form>
-      <Link onClick={() => navigate('/sign-up')}>Don't have an account yet? Sign up for free here!</Link>
+      <Link onClick={() => navigate('/sign-in')}>Already have an account? Sign in to begin planning your wedding!</Link>
     </>
+
   )
 
 }

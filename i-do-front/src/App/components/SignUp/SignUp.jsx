@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import SignUpForm from "./SignUpForm.js";
+
+import SignUpForm from "./SignUpForm";
 
 export default function SignUp() {
     return (
