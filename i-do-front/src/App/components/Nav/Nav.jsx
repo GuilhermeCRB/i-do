@@ -17,7 +17,7 @@ export default function Nav() {
                     <FiSearch />
                     <SearchBox type="text" placeholder="Search..." />
                 </SearchDiv>
-                <CategoriesList active={active} />
+                <CategoriesList active={active} setActive={setActive} />
             </NavSide>
         </NavWrapper>
     );

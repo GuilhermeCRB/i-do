@@ -3,24 +3,33 @@ import { TiHome } from "react-icons/ti";
 import { TbTruckDelivery } from "react-icons/tb";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { AiFillBook } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+
+import { MenuContext } from "../../../../Contexts/MenuContext";
+
+import handleNavigate from "../../../../utils/handleNavigate";
 
 export default function MenuList() {
+    const { setActive } = useContext(MenuContext);
+    const navigate = useNavigate();
+    
     return (
         <ListWrapper>
             <div>
-                <Category >
+                <Category onClick={() => handleNavigate(setActive, navigate, '/')}>
                     <TiHome />
                     <h2>Home</h2>
                 </Category>
-                <Category>
+                <Category onClick={() => handleNavigate(setActive, navigate, '/suppliers')}>
                     <TbTruckDelivery />
                     <h2>Suplliers</h2>
                 </Category>
-                <Category>
+                <Category onClick={() => handleNavigate(setActive, navigate, '/account')}>
                     <RiAccountCircleFill />
                     <h2>Account</h2>
                 </Category>
-                <Category>
+                <Category onClick={() => handleNavigate(setActive, navigate, '/budget')}>
                     <AiFillBook />
                     <h2>Budget</h2>
                 </Category>

@@ -1,13 +1,17 @@
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { FiSearch } from "react-icons/fi";
 import { FaBars } from "react-icons/fa";
-import { useContext } from "react";
 import styled from "styled-components";
 
 import { MenuContext } from "../../../Contexts/MenuContext";
 
+import handleNavigate from "../../../utils/handleNavigate";
+
 export default function Header() {
     const { active, setActive } = useContext(MenuContext);
+    const navigate = useNavigate();
 
     return (
         <>
@@ -21,7 +25,7 @@ export default function Header() {
                     <FiSearch />
                     <SearchBox type="text" placeholder="Search..." />
                 </SearchDiv>
-                <RiAccountCircleFill className="account-icon" />
+                <RiAccountCircleFill className="account-icon" onClick={() => handleNavigate(setActive, navigate, '/account')}/>
             </HeaderDiv>
             <SmallHeaderSearch>
                 <SmallSearchDiv className="search-bar">

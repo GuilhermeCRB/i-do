@@ -3,24 +3,29 @@ import { TiHome } from "react-icons/ti";
 import { TbTruckDelivery } from "react-icons/tb";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { AiFillBook } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
-export default function CategoriesList({ active }) {
+import handleNavigate from "../../../utils/handleNavigate";
+
+export default function CategoriesList({ active, setActive }) {
+    const navigate = useNavigate();
+
     return (
         <ListWrapper>
             <List className={active ? "" : "only-icons"}>
-                <Category >
+                <Category onClick={() => handleNavigate(setActive, navigate, '/')}>
                     <TiHome />
                     <h2 className={active ? "" : "no-display"}>Home</h2>
                 </Category>
-                <Category>
+                <Category onClick={() => handleNavigate(setActive, navigate, '/suppliers')}>
                     <TbTruckDelivery />
                     <h2 className={active ? "" : "no-display"}>Suplliers</h2>
                 </Category>
-                <Category>
+                <Category onClick={() => handleNavigate(setActive, navigate, '/account')}>
                     <RiAccountCircleFill />
                     <h2 className={active ? "" : "no-display"}>Account</h2>
                 </Category>
-                <Category>
+                <Category onClick={() => handleNavigate(setActive, navigate, '/budget')}>
                     <AiFillBook />
                     <h2 className={active ? "" : "no-display"}>Budget</h2>
                 </Category>
@@ -30,7 +35,8 @@ export default function CategoriesList({ active }) {
 }
 
 const ListWrapper = styled.div`
-    width:100%;
+    width: 100%;
+    padding: 0 0.5vw;
 
     .only-icons {
         display: flex;
