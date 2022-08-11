@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import SignUp from "./components/SignUp/SignUp";
 import SignIn from "./components/SignIn/SignIn";
-import Header from "./components/Header/Header";
+import Header from "./components/Nav/Nav";
 import Home from "./components/Home/Home";
 
 import { UserProvider } from "../Contexts/UserContext";

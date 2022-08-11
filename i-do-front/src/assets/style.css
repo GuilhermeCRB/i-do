@@ -5,6 +5,7 @@
   --background-button: #590902;
   --background-header: #590902;
   --background-page: #BACBD9;
+  --nav-hover: #BACBD9;
   --placeholder-color: #BACBD9;
   --background-input: #FFF;
   --icon-color: #8C7561;
@@ -20,4 +21,12 @@ html, body, .root{
 
 body a{
   text-decoration: none;
+}
+
+body input{
+  font-family: var(--main-font);
+}
+
+body input::placeholder{
+  font-family: var(--main-font);
 }
