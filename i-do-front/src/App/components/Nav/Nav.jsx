@@ -17,7 +17,7 @@ export default function Nav() {
                     <FiSearch />
                     <SearchBox type="text" placeholder="Search..." />
                 </SearchDiv>
-                <CategoriesList active = {active} />
+                <CategoriesList active={active} />
             </NavSide>
         </NavWrapper>
     );
@@ -25,6 +25,10 @@ export default function Nav() {
 
 const NavWrapper = styled.div`
     width: 100%;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 
     .inactive{
         width: 4.5vw;

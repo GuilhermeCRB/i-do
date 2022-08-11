@@ -10,8 +10,11 @@
   --background-input: #FFF;
   --icon-color: #8C7561;
   --link-color: #402A22;
+  --backdrop: rgba(0,0,0,0.6);
 
   --main-font: 'Ubuntu';
+
+  --header-height: 10vh;
 }
 
 html, body, .root{

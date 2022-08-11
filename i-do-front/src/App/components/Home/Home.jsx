@@ -1,15 +1,26 @@
-import Nav from "../Nav/Nav";
 import styled from "styled-components";
 
+import Nav from "../Nav/Nav";
+import Header from "../Header/Header";
+import SideMenu from "./SideMenu/SideMenu";
+
 export default function Home() {
-    return (
+        return (
         <Main>
+            <Header />
             <Nav />
-            <p>Home</p>
+            <SideMenu />
+            <h6>Home</h6>
         </Main>
     )
 }
 
 const Main = styled.main`
     display: flex;
+
+    h6{
+        @media (max-width: 768px) {
+            margin-top: var(--header-height);
+        }
+    }
 `
