@@ -22,6 +22,10 @@ const MenuDiv = styled.div`
 
     .display-menu{
         width: 30vw;
+
+        @media (max-width: 425px) {
+        width: 50vw;
+    }
     }
 
     .display-backdrop{

@@ -66,7 +66,7 @@ const NavSide = styled.nav`
         position: absolute;
         top: 1.5vh;
         right: 1.5vw;
-        font-size: 22px;
+        font-size: 2vw;
         color: var(--icon-color);
     }
 
@@ -80,12 +80,13 @@ const NavSide = styled.nav`
 const SearchDiv = styled.div`
     position: relative;
     height: 5vh;
+    width: 100%;
 
     svg{
         position: absolute;
-        top: 1.3vh;
+        top: 1.1vh;
         left: 0.5vw;
-        font-size: 14px;
+        font-size: 1.5vw;
         color: var(--icon-color);
     }
 `
@@ -96,6 +97,7 @@ const SearchBox = styled.input`
     padding-left: 2.5vw;
     border: none;
     border-radius: 12px;
+    font-size: 1.2vw;
     color: var(--icon-color);
 
     ::placeholder{

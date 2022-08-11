@@ -40,7 +40,6 @@ const ListWrapper = styled.div`
         li{
             display: flex;
             justify-content: center;
-            width: 36px;
             padding: 1vh 0;
     
             svg{
@@ -61,14 +60,13 @@ const Category = styled.li`
     align-items: center;
     margin-top: 3vh;
     padding: 1vh 0.5vw;
-    font-size: 18px;
+    font-size: 1.2vw;
     color: var(--icon-color);
     border-radius: 10px;
     transition: all 0.4s ease;
 
     svg{
-        min-width: 22px;
-        font-size: 22px;
+        font-size: 1.8vw;
         margin-right: 2vw;
     }
 
