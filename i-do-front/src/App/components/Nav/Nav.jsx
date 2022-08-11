@@ -17,7 +17,7 @@ export default function Nav() {
                     <FiSearch />
                     <SearchBox type="text" placeholder="Search..." />
                 </SearchDiv>
-                <CategoriesList />
+                <CategoriesList active = {active} />
             </NavSide>
         </NavWrapper>
     );
@@ -28,6 +28,13 @@ const NavWrapper = styled.div`
 
     .inactive{
         width: 4.5vw;
+        padding: 1.5vh 0;
+        
+        .bars-icon{
+            position: inherit;
+            top: 0;
+            right: 0;
+        }
     }
 
     .small-logo{

@@ -4,28 +4,52 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { AiFillBook } from "react-icons/ai";
 
-export default function CategoriesList() {
+export default function CategoriesList({ active }) {
     return (
-        <List>
-            <Category>
-                <TiHome />
-                <h2>Home</h2>
-            </Category>
-            <Category>
-                <TbTruckDelivery />
-                <h2>Suplliers</h2>
-            </Category>
-            <Category>
-                <RiAccountCircleFill />
-                <h2>Account</h2>
-            </Category>
-            <Category>
-                <AiFillBook />
-                <h2>Budget</h2>
-            </Category>
-        </List>
+        <ListWrapper>
+            <List className={active ? "" : "only-icons"}>
+                <Category >
+                    <TiHome />
+                    <h2 className={active ? "" : "no-display"}>Home</h2>
+                </Category>
+                <Category>
+                    <TbTruckDelivery />
+                    <h2 className={active ? "" : "no-display"}>Suplliers</h2>
+                </Category>
+                <Category>
+                    <RiAccountCircleFill />
+                    <h2 className={active ? "" : "no-display"}>Account</h2>
+                </Category>
+                <Category>
+                    <AiFillBook />
+                    <h2 className={active ? "" : "no-display"}>Budget</h2>
+                </Category>
+            </List>
+        </ListWrapper>
     );
 }
+
+const ListWrapper = styled.div`
+    width:100%;
+
+    .only-icons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        li{
+            display: flex;
+            justify-content: center;
+            width: 36px;
+            padding: 1vh 0;
+    
+            svg{
+                margin-right: 0;
+            }
+        }
+    }
+    
+`
 
 const List = styled.ul`
     width:100%;
@@ -33,15 +57,13 @@ const List = styled.ul`
 
 const Category = styled.li`
     width: 100%;
-    height: 20%;
     display: flex;
     align-items: center;
     margin-top: 3vh;
-    padding-left: 0.5vw;
+    padding: 1vh 0.5vw;
     font-size: 18px;
     color: var(--icon-color);
     border-radius: 10px;
-    overflow-x: hidden;
     transition: all 0.4s ease;
 
     svg{
