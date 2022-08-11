@@ -7,8 +7,9 @@ import { useNavigate } from "react-router-dom";
 
 import handleNavigate from "../../../utils/handleNavigate";
 
-export default function CategoriesList({ active, setActive }) {
+export default function CategoriesList({ active }) {
     const navigate = useNavigate();
+    const setActive = false;
 
     return (
         <ListWrapper>

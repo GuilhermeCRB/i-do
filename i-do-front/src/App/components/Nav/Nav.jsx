@@ -1,23 +1,25 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { FaBars } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import styled from "styled-components";
 
 import CategoriesList from "./CategoriesList";
 
+import { MenuContext } from "../../../Contexts/MenuContext";
+
 export default function Nav() {
-    const [active, setActive] = useState(true);
+    const {activeNav, setActiveNav} = useContext(MenuContext);
 
     return (
         <NavWrapper>
-            <NavSide className={active ? "" : "inactive"}>
-                <FaBars className="bars-icon" onClick={() => setActive(!active)} />
-                <img className={active ? "" : "small-logo"} src="./logo.png" />
-                <SearchDiv className={active ? "" : "no-display"} >
+            <NavSide className={activeNav ? "" : "inactive"}>
+                <FaBars className="bars-icon" onClick={() => setActiveNav(!activeNav)} />
+                <img className={activeNav ? "" : "small-logo"} src="./logo.png" />
+                <SearchDiv className={activeNav ? "" : "no-display"} >
                     <FiSearch />
                     <SearchBox type="text" placeholder="Search..." />
                 </SearchDiv>
-                <CategoriesList active={active} setActive={setActive} />
+                <CategoriesList active={activeNav} setActive={setActiveNav} />
             </NavSide>
         </NavWrapper>
     );

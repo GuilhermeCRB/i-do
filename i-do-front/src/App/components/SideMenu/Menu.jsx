@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import MenuList from "./MenuList";
 
-import { MenuContext } from "../../../../Contexts/MenuContext";
+import { MenuContext } from "../../../Contexts/MenuContext";
 
 export default function Menu() {
     const { active, setActive } = useContext(MenuContext);

@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { useContext } from "react";
 
 import Menu from "./Menu";
+import { MenuContext } from "../../../Contexts/MenuContext";
 
-import { MenuContext } from "../../../../Contexts/MenuContext";
 
 export default function SideMenu(){
     const { active, setActive } = useContext(MenuContext);

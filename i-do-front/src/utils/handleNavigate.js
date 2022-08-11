@@ -1,4 +1,7 @@
 export default function handleNavigate(setActive, navigate, path){  
-    setActive(true);
+    if(setActive){
+        setActive(true);
+    }
+
     navigate(path);
 }

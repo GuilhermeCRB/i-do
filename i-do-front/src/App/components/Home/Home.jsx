@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import Nav from "../Nav/Nav";
 import Header from "../Header/Header";
-import SideMenu from "./SideMenu/SideMenu";
+import SideMenu from "../SideMenu/SideMenu";
 
 export default function Home() {
         return (

@@ -6,9 +6,9 @@ import { AiFillBook } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 
-import { MenuContext } from "../../../../Contexts/MenuContext";
+import { MenuContext } from "../../../Contexts/MenuContext";
 
-import handleNavigate from "../../../../utils/handleNavigate";
+import handleNavigate from "../../../utils/handleNavigate";
 
 export default function MenuList() {
     const { setActive } = useContext(MenuContext);
