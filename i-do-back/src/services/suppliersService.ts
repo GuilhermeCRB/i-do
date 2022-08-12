@@ -1,18 +1,27 @@
 import { customsearch } from "googleapis/build/src/apis/customsearch/index.js";
+import { stripHtml } from "string-strip-html";
 import dotenv from "dotenv";
 
 dotenv.config();
 
 async function googleSearch(filter: string, q: any) {
-    const credential = createCredentials(filter, q);
+    const { sanitizedFilter, sanitizedQ } = sanitizePath(filter, q);
+    const credential = createCredentials(sanitizedFilter, sanitizedQ);
     const response = await customsearch("v1").cse.list(credential);
     return formatResponse(response.data);
 }
 
-function createCredentials(filter: string, q: string){
+function sanitizePath(filter: string, q: any) {
+    return {
+        sanitizedFilter: stripHtml(filter).result,
+        sanitizedQ: stripHtml(q).result
+    }
+}
+
+function createCredentials(filter: string, q: string) {
     const searchAmount = 10;
 
-    return{
+    return {
         auth: process.env.GOOGLE_CLOUD_KEY,
         cx: process.env.SEARCH_ENGINE_ID,
         q: "casamento" + filter + q,
@@ -20,7 +29,7 @@ function createCredentials(filter: string, q: string){
     }
 }
 
-function formatResponse(response: any){
+function formatResponse(response: any) {
     const results = response.items;
     const data = results.map(result => {
         return {
@@ -32,7 +41,7 @@ function formatResponse(response: any){
         }
     });
 
-    return{
+    return {
         resultsAmount: response.searchInformation.formattedTotalResults,
         data
     }
