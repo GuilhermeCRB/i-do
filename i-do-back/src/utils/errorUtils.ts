@@ -2,7 +2,7 @@ type ErrorType = "conflict" | "not_found" | "unauthorized" | "unprocessable_enti
 
 export interface AppError {
   type: ErrorType;
-  message: string;
+  message: string | string[];
 }
 
 export function isAppError(error: object): error is AppError {
@@ -28,6 +28,6 @@ export function unauthorizedError(message?: string): AppError {
   return { type: "unauthorized", message: message ?? "" };
 }
 
-export function unprocessableEntityError(message?: string): AppError {
+export function unprocessableEntityError(message?: string | string[]): AppError {
   return { type: "unprocessable_entity", message: message ?? "" };
 }
