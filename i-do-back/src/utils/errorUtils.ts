@@ -1,4 +1,4 @@
-type ErrorType = "conflict" | "not_found" | "unauthorized" | "unprocessable_entity";
+type ErrorType = "conflict" | "forbidden" | "not_found" | "unauthorized" | "unprocessable_entity";
 
 export interface AppError {
   type: ErrorType;
@@ -11,6 +11,7 @@ export function isAppError(error: object): error is AppError {
 
 export function errorTypeToStatusCode(type: ErrorType) {
   if (type === "unauthorized") return 401;
+  if (type === "forbidden") return 403;
   if (type === "not_found") return 404;
   if (type === "conflict") return 409;
   if (type === "unprocessable_entity") return 422;
@@ -18,6 +19,10 @@ export function errorTypeToStatusCode(type: ErrorType) {
 
 export function conflictError(message?: string): AppError {
   return { type: "conflict", message: message ?? "" };
+}
+
+export function forbiddenError(message?: string): AppError {
+  return { type: "forbidden", message: message ?? "" };
 }
 
 export function notFoundError(message?: string): AppError {

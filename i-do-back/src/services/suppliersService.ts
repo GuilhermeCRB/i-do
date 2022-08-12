@@ -12,9 +12,17 @@ async function googleSearch(filter: string, q: any) {
 }
 
 function sanitizePath(filter: string, q: any) {
+    let sanitizedQ;
+
+    if(q){
+        sanitizedQ = stripHtml(q).result
+    }else{
+        sanitizedQ = "";
+    }
+
     return {
         sanitizedFilter: stripHtml(filter).result,
-        sanitizedQ: stripHtml(q).result
+        sanitizedQ
     }
 }
 
@@ -24,7 +32,7 @@ function createCredentials(filter: string, q: string) {
     return {
         auth: process.env.GOOGLE_CLOUD_KEY,
         cx: process.env.SEARCH_ENGINE_ID,
-        q: "casamento" + filter + q,
+        q: "casamento | wedding" + filter + q,
         num: searchAmount
     }
 }
@@ -32,12 +40,18 @@ function createCredentials(filter: string, q: string) {
 function formatResponse(response: any) {
     const results = response.items;
     const data = results.map(result => {
+        let image = "";
+
+        if(result.pagemap.cse_thumbnail){
+            image = result.pagemap.cse_thumbnail[0].src;
+        }
+
         return {
             title: result.title,
             link: result.link,
             displayLink: result.displayLink,
             snippet: result.snippet,
-            image: result.pagemap.cse_thumbnail[0].src
+            image
         }
     });
 
