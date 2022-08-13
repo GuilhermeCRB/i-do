@@ -5,13 +5,15 @@ import Header from "../Header/Header";
 import SideMenu from "../SideMenu/SideMenu";
 
 export default function Budget() {
-        return (
-        <Main>
+    return (
+        <>
             <Header />
             <Nav />
             <SideMenu />
-            <h6>Budget</h6>
-        </Main>
+            <Main>
+                <h6>Home</h6>
+            </Main>
+        </>
     )
 }
 

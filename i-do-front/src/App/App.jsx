@@ -13,7 +13,7 @@ import { MenuProvider } from "../Contexts/MenuContext";
 import UrlContext from "../Contexts/UrlContext";
 
 function App() {
-  const BASE_BACK_URL = "http://localhost:5003/";
+  const BASE_BACK_URL = "http://localhost:5000/";
 
   return (
     <UrlContext.Provider value={BASE_BACK_URL}>

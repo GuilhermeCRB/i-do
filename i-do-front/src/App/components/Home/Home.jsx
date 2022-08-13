@@ -5,13 +5,15 @@ import Header from "../Header/Header";
 import SideMenu from "../SideMenu/SideMenu";
 
 export default function Home() {
-        return (
-        <Main>
+    return (
+        <>
             <Header />
             <Nav />
             <SideMenu />
-            <h6>Home</h6>
-        </Main>
+            <Main>
+                <h6>Home</h6>
+            </Main>
+        </>
     )
 }
 

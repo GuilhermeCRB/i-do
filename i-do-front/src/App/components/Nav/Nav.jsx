@@ -26,6 +26,10 @@ export default function Nav() {
 }
 
 const NavWrapper = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
     width: 100%;
 
     @media (max-width: 768px) {
@@ -54,7 +58,7 @@ const NavWrapper = styled.div`
 `
 
 const NavSide = styled.nav`
-    width: 15vw;
+    width: var(--nav-width);
     height: 100vh;
     position: relative;
     display: flex;
