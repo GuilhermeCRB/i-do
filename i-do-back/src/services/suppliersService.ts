@@ -32,7 +32,7 @@ function createCredentials(filter: string, q: string) {
     return {
         auth: process.env.GOOGLE_CLOUD_KEY,
         cx: process.env.SEARCH_ENGINE_ID,
-        q: "casamento | wedding" + filter + q,
+        q: "casamento" + filter + q,
         num: searchAmount
     }
 }

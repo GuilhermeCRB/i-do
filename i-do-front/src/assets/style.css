@@ -8,13 +8,21 @@
   --nav-hover: #BACBD9;
   --placeholder-color: #BACBD9;
   --background-input: #FFF;
+  --background-card: #FFF;
+  --background-button: #FFF;
   --icon-color: #8C7561;
   --link-color: #402A22;
   --backdrop: rgba(0,0,0,0.6);
+  --divider: #BF3F57;
 
   --main-font: 'Ubuntu';
 
   --header-height: 10vh;
+  --card-height: 35vh;
+  --button-height: 5vh;
+  --card-width: 40vw;
+  --button-width: 9.5vw;
+  --card-padding: 1vw;
   --nav-width: 15vw;
   --search-box: 5vh;
 }

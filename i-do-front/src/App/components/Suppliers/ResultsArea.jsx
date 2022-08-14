@@ -4,6 +4,7 @@ import styled from "styled-components";
 import axios from "axios";
 
 import Card from "./Card";
+import FilterBar from "./FilterBar";
 
 import UrlContext from "../../../Contexts/UrlContext";
 
@@ -34,16 +35,19 @@ export default function ResultsArea() {
 
     return (
         results ?
-            <ResultsWrapper>
-                {results.data.map((result, index) => {
-                    return <Card id={index} result={result} />
-                })}
-            </ResultsWrapper>
+            <>
+                <ResultsWrapper>
+                    <FilterBar />
+                    {results.data.map((result, index) => {
+                        return <Card id={index} result={result} />
+                    })}
+                </ResultsWrapper>
+            </>
             :
             <TailSpin color="var(--background-header)" />
     );
 }
 
 const ResultsWrapper = styled.div`
-    
+    margin-top: 5vh;
 `
