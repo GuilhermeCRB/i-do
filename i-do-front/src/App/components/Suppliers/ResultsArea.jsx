@@ -7,9 +7,11 @@ import Card from "./Card";
 import FilterBar from "./FilterBar";
 
 import UrlContext from "../../../Contexts/UrlContext";
+import { FilterContext } from "../../../Contexts/FilterContext";
 
 export default function ResultsArea() {
     const BASE_BACK_URL = useContext(UrlContext);
+    const { filter } = useContext(FilterContext);
     const [results, setResults] = useState(null);
     const token = localStorage.getItem("i_do_token");
     const config = {
@@ -19,7 +21,7 @@ export default function ResultsArea() {
     };
 
     useEffect(() => {
-        const url = BASE_BACK_URL + "suppliers/Niteroi";
+        const url = `${BASE_BACK_URL}suppliers?place=${filter.place}&q=${filter.q}`;
         const promise = axios.get(url, config);
 
         promise.then((response) => {
@@ -31,7 +33,7 @@ export default function ResultsArea() {
             console.log(err);
         });
 
-    }, []);
+    }, [filter]);
 
     return (
         results ?
@@ -39,7 +41,7 @@ export default function ResultsArea() {
                 <ResultsWrapper>
                     <FilterBar />
                     {results.data.map((result, index) => {
-                        return <Card id={index} result={result} />
+                        return <Card key={index} result={result} />
                     })}
                 </ResultsWrapper>
             </>

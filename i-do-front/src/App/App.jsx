@@ -10,6 +10,7 @@ import Budget from "./components/Budget/Budget";
 
 import { UserProvider } from "../Contexts/UserContext";
 import { MenuProvider } from "../Contexts/MenuContext";
+import { FilterProvider } from "../Contexts/FilterContext";
 import UrlContext from "../Contexts/UrlContext";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
     <UrlContext.Provider value={BASE_BACK_URL}>
       <UserProvider>
         <MenuProvider>
+          <FilterProvider>
           <BrowserRouter>
             <Routes>
               <Route path="/sign-in" element={<SignIn />} />
@@ -29,6 +31,7 @@ function App() {
               <Route path="/budget" element={<PrivateRoute><Budget /></PrivateRoute>} />
             </Routes>
           </BrowserRouter>
+          </FilterProvider>
         </MenuProvider>
       </UserProvider>
     </UrlContext.Provider>

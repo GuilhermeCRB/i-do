@@ -5,7 +5,7 @@ import validateToken from "../middlewares/validateToken.js";
 
 const suppliers = Router();
 
-suppliers.get("/suppliers/:filter",
+suppliers.get("/suppliers",
     validateToken,
     searchForSuppliers
 );

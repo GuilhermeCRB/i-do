@@ -72,6 +72,7 @@ const Link = styled.a`
     position: absolute;
     z-index: 2;
     bottom: 4vh;
+    font-size: 1.1vw;
     color: var(--link-color);
 
     :hover{

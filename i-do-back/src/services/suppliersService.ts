@@ -4,35 +4,38 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-async function googleSearch(filter: string, q: any) {
-    const { sanitizedFilter, sanitizedQ } = sanitizePath(filter, q);
-    const credential = createCredentials(sanitizedFilter, sanitizedQ);
+async function googleSearch(place: any, q: any) {
+    const { sanitizedPlace, sanitizedQ } = sanitizePath(place, q);
+    const credential = createCredentials(sanitizedPlace, sanitizedQ);
     const response = await customsearch("v1").cse.list(credential);
     return formatResponse(response.data);
 }
 
-function sanitizePath(filter: string, q: any) {
-    let sanitizedQ;
+function sanitizePath(place: string, q: any) {
+    let sanitizedQ = "";
+    let sanitizedPlace = "";
 
     if(q){
         sanitizedQ = stripHtml(q).result
-    }else{
-        sanitizedQ = "";
+    }
+
+    if(place){
+        sanitizedPlace = stripHtml(place).result
     }
 
     return {
-        sanitizedFilter: stripHtml(filter).result,
+        sanitizedPlace,
         sanitizedQ
     }
 }
 
-function createCredentials(filter: string, q: string) {
+function createCredentials(place: string, q: string) {
     const searchAmount = 10;
 
     return {
         auth: process.env.GOOGLE_CLOUD_KEY,
         cx: process.env.SEARCH_ENGINE_ID,
-        q: "casamento" + filter + q,
+        q: `casamento ${place} ${q}`,
         num: searchAmount
     }
 }
