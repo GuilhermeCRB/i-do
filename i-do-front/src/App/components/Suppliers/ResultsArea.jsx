@@ -28,7 +28,7 @@ export default function ResultsArea() {
         const promise = axios.get(url, config);
 
         promise.then((response) => {
-            const count = 10 + page.p;
+            const count = 10 + page.p; // TODO: Se trocar o filtro não vai voltar para a página 1.
             setResults({ response: response.data, count });
         });
 
@@ -61,7 +61,6 @@ export default function ResultsArea() {
 }
 
 const ResultsWrapper = styled.div`
-z-index: 3;
     margin-top: 5vh;
 
     @media (max-width: 768px) {
