@@ -4,14 +4,14 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-async function googleSearch(place: any, q: any) {
-    const { sanitizedPlace, sanitizedQ } = sanitizePath(place, q);
-    const credential = createCredentials(sanitizedPlace, sanitizedQ);
+async function googleSearch(place: any, q: any, start: any) {
+    const { sanitizedPlace, sanitizedQ, sanitizedStart } = sanitizePath(place, q, start);
+    const credential = createCredentials(sanitizedPlace, sanitizedQ, sanitizedStart);
     const response = await customsearch("v1").cse.list(credential);
     return formatResponse(response.data);
 }
 
-function sanitizePath(place: string, q: any) {
+function sanitizePath(place: string, q: string, start: string) {
     let sanitizedQ = "";
     let sanitizedPlace = "";
 
@@ -25,18 +25,20 @@ function sanitizePath(place: string, q: any) {
 
     return {
         sanitizedPlace,
-        sanitizedQ
+        sanitizedQ,
+        sanitizedStart: stripHtml(start).result
     }
 }
 
-function createCredentials(place: string, q: string) {
+function createCredentials(place: string, q: string, sanitizedStart: string) {
     const searchAmount = 10;
 
     return {
         auth: process.env.GOOGLE_CLOUD_KEY,
         cx: process.env.SEARCH_ENGINE_ID,
         q: `casamento ${place} ${q}`,
-        num: searchAmount
+        num: searchAmount,
+        start: parseInt(sanitizedStart)
     }
 }
 
