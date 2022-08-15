@@ -30,7 +30,6 @@ const Main = styled.main`
         margin: 0 auto;
     }
 
-
     h6{
         @media (max-width: 768px) {
             margin-top: var(--header-height);

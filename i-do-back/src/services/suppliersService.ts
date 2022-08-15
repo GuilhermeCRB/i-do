@@ -47,7 +47,7 @@ function formatResponse(response: any) {
     const data = results.map(result => {
         let image = "";
 
-        if(result.pagemap.cse_thumbnail){
+        if(result.pagemap && result.pagemap.cse_thumbnail){
             image = result.pagemap.cse_thumbnail[0].src;
         }
 

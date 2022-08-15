@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { TailSpin } from "react-loader-spinner";
+import Pagination from '@mui/material/Pagination';
 import styled from "styled-components";
 import axios from "axios";
 
@@ -11,8 +12,10 @@ import { FilterContext } from "../../../Contexts/FilterContext";
 
 export default function ResultsArea() {
     const BASE_BACK_URL = useContext(UrlContext);
+    const PER_PAGE = 10;
     const { filter } = useContext(FilterContext);
     const [results, setResults] = useState(null);
+    const [page, setPage] = useState({p: 1, index: 1});
     const token = localStorage.getItem("i_do_token");
     const config = {
         headers: {
@@ -21,11 +24,12 @@ export default function ResultsArea() {
     };
 
     useEffect(() => {
-        const url = `${BASE_BACK_URL}suppliers?place=${filter.place}&q=${filter.q}`;
+        const url = `${BASE_BACK_URL}suppliers?place=${filter.place}&q=${filter.q}&start=${page.index}`;
         const promise = axios.get(url, config);
 
         promise.then((response) => {
-            setResults(response.data);
+            const count = 10 + page.p;
+            setResults({ response: response.data, count });
         });
 
         promise.catch(err => {
@@ -33,17 +37,22 @@ export default function ResultsArea() {
             console.log(err);
         });
 
-    }, [filter]);
+    }, [filter, page]);
 
     return (
         results ?
             <>
                 <ResultsWrapper>
                     <FilterBar />
-                    <ResultsCount>{`Approximately ${results.resultsAmount} results`}</ResultsCount>
-                    {results.data.map((result, index) => {
+                    <ResultsCount>{`Approximately ${results.response.resultsAmount} results`}</ResultsCount>
+                    {results.response.data.map((result, index) => {
                         return <Card key={index} result={result} />
                     })}
+                    <Pagination
+                        count={results.count}
+                        showFirstButton
+                        onChange={(e, p) => setPage({...page, p, index: (p - 1) * PER_PAGE + 1})}
+                    />
                 </ResultsWrapper>
             </>
             :
@@ -52,6 +61,7 @@ export default function ResultsArea() {
 }
 
 const ResultsWrapper = styled.div`
+z-index: 3;
     margin-top: 5vh;
 
     @media (max-width: 768px) {
