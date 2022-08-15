@@ -40,6 +40,7 @@ export default function ResultsArea() {
             <>
                 <ResultsWrapper>
                     <FilterBar />
+                    <ResultsCount>{`Approximately ${results.resultsAmount} results`}</ResultsCount>
                     {results.data.map((result, index) => {
                         return <Card key={index} result={result} />
                     })}
@@ -52,4 +53,9 @@ export default function ResultsArea() {
 
 const ResultsWrapper = styled.div`
     margin-top: 5vh;
+`
+
+const ResultsCount = styled.p`
+    margin-bottom: 2vh;
+    color: var(--icon-color);
 `

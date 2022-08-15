@@ -28,7 +28,7 @@ export default function FilterBar() {
 
 const FilterWrapper = styled.div`
     width: var(--card-width);
-    margin-bottom: 5vh;
+    margin-bottom: 8vh;
 `
 
 const LocationFilter = styled.div`
