@@ -14,8 +14,8 @@ import { FilterProvider } from "../Contexts/FilterContext";
 import UrlContext from "../Contexts/UrlContext";
 
 function App() {
-  // const BASE_BACK_URL = "http://localhost:5000/";
-  const BASE_BACK_URL = "https://i-do-gui.herokuapp.com/";
+  const BASE_BACK_URL = "http://localhost:5000/";
+  // const BASE_BACK_URL = "https://i-do-gui.herokuapp.com/";
 
   return (
     <UrlContext.Provider value={BASE_BACK_URL}>

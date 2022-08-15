@@ -128,7 +128,7 @@ const Form = styled.form`
     padding: 2% 0;
     border: none;
     border-radius: 6px;
-    background-color: var(--background-button);
+    background-color: var(--background-sign);
     color: var(--background-input);
     font-size: 22px;
     font-weight: 700;  
