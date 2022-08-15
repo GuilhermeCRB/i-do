@@ -26,6 +26,11 @@ const Main = styled.main`
     align-items: center;
     margin-left: var(--nav-width);
 
+    @media (max-width: 768px) {
+        margin: 0 auto;
+    }
+
+
     h6{
         @media (max-width: 768px) {
             margin-top: var(--header-height);

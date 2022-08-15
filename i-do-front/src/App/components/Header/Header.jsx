@@ -49,13 +49,13 @@ const HeaderDiv = styled.header`
     background-color: var(--background-header);
 
     .account-icon{
-        min-width: 22px;
+        width: 8vw;
         font-size: 32px;
         color: var(--icon-color);
     }
 
     .bars-icon{
-        font-size: 22px;
+        font-size: 5vw;
         color: var(--icon-color);
     }
 
@@ -145,7 +145,7 @@ const SmallSearchDiv = styled.div`
         position: absolute;
         top: 1.3vh;
         left: 3vw;
-        font-size: 14px;
+        font-size: 3.5vw;
         color: var(--icon-color);
     }
 `
@@ -155,9 +155,11 @@ const SmallSearchBox = styled.input`
     width: 100%;
     padding-left: 9vw;
     border: none;
+    font-size: 3vw;
     color: var(--icon-color);
 
     ::placeholder{
+        font-size: 3vw;
         color: var(--icon-color);
     }
 `

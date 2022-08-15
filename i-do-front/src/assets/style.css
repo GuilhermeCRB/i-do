@@ -18,10 +18,10 @@
   --main-font: 'Ubuntu';
 
   --header-height: 10vh;
-  --card-height: 35vh;
+  --card-height: 40vh;
   --button-height: 5vh;
-  --card-width: 50vw;
-  --button-width: 12vw;
+  --card-width: 65vw;
+  --button-width: 15vw;
   --card-padding: 1vw;
   --nav-width: 15vw;
   --search-box: 5vh;

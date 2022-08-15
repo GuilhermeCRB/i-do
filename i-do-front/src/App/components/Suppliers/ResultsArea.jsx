@@ -53,9 +53,22 @@ export default function ResultsArea() {
 
 const ResultsWrapper = styled.div`
     margin-top: 5vh;
+
+    @media (max-width: 768px) {
+        margin-top: calc(var(--header-height) + 5vh);
+    }
+
+    @media (max-width: 435px) {
+        margin-top: calc(var(--header-height) + 10vh);
+    }
 `
 
 const ResultsCount = styled.p`
     margin-bottom: 2vh;
+    font-size: 1.2vw;
     color: var(--icon-color);
+
+    @media (max-width: 768px) {
+        font-size: 2vw;
+    }
 `

@@ -31,7 +31,6 @@ const CardArea = styled.div`
 
 const DivImg = styled.a`
     width: 45%;
-    z-index: 2;
     height: calc(var(--card-height) - 2*var(--card-padding));
 
     :hover{
@@ -58,24 +57,34 @@ const SiteInfo = styled.div`
 `
 
 const Title = styled.h2`
-    font-size: 1.3vw;
+    font-size: 1.5vw;
     font-weight: 700;
     margin-bottom: 2vh;
     
+    @media (max-width: 768px) {
+        font-size: 2vw;
+    }
 `
 
 const Snippet = styled.p`
-    font-size: 1.1vw;
+    font-size: 1.3vw;
+
+    @media (max-width: 768px) {
+        font-size: 2vw;
+    }
 `
 
 const Link = styled.a`
     position: absolute;
-    z-index: 2;
     bottom: 4vh;
-    font-size: 1.1vw;
+    font-size: 1.3vw;
     color: var(--link-color);
 
     :hover{
         cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 2vw;
     }
 `

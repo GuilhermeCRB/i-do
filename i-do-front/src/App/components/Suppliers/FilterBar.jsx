@@ -33,7 +33,6 @@ const FilterWrapper = styled.div`
 
 const LocationFilter = styled.div`
     position: relative;
-    z-index: 2;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,13 +40,22 @@ const LocationFilter = styled.div`
     font-size: 1.3vw;
 
     input{
-        width: 90%;
+        width: 95%;
         height: 5vh;
         padding: 0 1vw;
         font-size: 1.3vw;
         border: none;
         border-radius: 5px;
         box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        width: 95%;
+        font-size: 2vw;
+
+        input{
+            font-size: 2vw;
+        }
     }
 `
 
@@ -56,8 +64,7 @@ const ButtonFilters = styled.div`
     justify-content: space-between;
 
     button{
-        z-index: 2;
-        width: var(--button-width);
+        min-width: var(--button-width);
         height: var(--button-height);
         font-family: var(--main-font);
         font-size: 1.3vw;
@@ -68,6 +75,10 @@ const ButtonFilters = styled.div`
 
         :hover{
             cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 2vw;
         }
     }
 `
