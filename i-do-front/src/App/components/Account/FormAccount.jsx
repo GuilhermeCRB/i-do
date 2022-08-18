@@ -23,8 +23,6 @@ export default function FormAccount() {
     const [formState, setFormState] = useState(false);
     const BASE_BACK_URL = useContext(UrlContext);
 
-
-
     function sendData(e) {
         e.preventDefault();
         setFormState(true);

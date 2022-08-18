@@ -14,5 +14,6 @@ export default function validateToken(req: Request, res: Response, next: NextFun
         res.locals.user = user;
     });
 
+
     next();
 }

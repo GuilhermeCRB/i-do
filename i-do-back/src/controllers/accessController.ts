@@ -8,8 +8,15 @@ export async function signUp(req: Request, res: Response) {
     res.sendStatus(201);
 }
 
-export async function signIn(req: Request, res: Response) {
+export async function signIn(res: Response) {
     const user: SignIn = res.locals.data;
-    const token = await accessService.signInUser(res, user);
+    const token = await accessService.signInUser(user);
     res.status(200).send({ token });
+}
+
+export async function updateAccount(req: Request, res: Response) {
+    const updateUser: CreateUser = res.locals.data;
+    const { partner1Email }: { partner1Email: string } = res.locals.user;
+    const newToken = await accessService.updateUser(updateUser, partner1Email);
+    res.status(200).send({ token: newToken });
 }
