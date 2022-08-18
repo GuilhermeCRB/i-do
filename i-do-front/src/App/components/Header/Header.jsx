@@ -55,12 +55,13 @@ const HeaderDiv = styled.header`
     }
 
     .bars-icon{
-        font-size: 5vw;
+        width: 8vw;
+        font-size: 22px;
         color: var(--icon-color);
     }
 
     .big-header-img{
-        width: 8vw;
+        width: 7vw;
         min-width: 50px;
         margin-left: 2vw;
     }

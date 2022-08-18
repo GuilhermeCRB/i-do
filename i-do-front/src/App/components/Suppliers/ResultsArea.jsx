@@ -44,7 +44,9 @@ export default function ResultsArea() {
             <>
                 <ResultsWrapper>
                     <FilterBar />
-                    <ResultsCount>{`Approximately ${results.response.resultsAmount} results`}</ResultsCount>
+                    <CountWrapper>
+                        <ResultsCount>{`Approximately ${results.response.resultsAmount} results`}</ResultsCount>
+                    </CountWrapper>
                     {results.response.data.map((result, index) => {
                         return <Card key={index} result={result} />
                     })}
@@ -64,12 +66,21 @@ const ResultsWrapper = styled.div`
     margin-top: 5vh;
 
     @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         margin-top: calc(var(--header-height) + 5vh);
     }
 
     @media (max-width: 435px) {
+        display: flex;
+        align-items: center;
         margin-top: calc(var(--header-height) + 10vh);
     }
+`
+
+const CountWrapper = styled.div`
+    width: var(--card-width);
 `
 
 const ResultsCount = styled.p`

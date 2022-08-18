@@ -50,10 +50,10 @@ const LocationFilter = styled.div`
     }
 
     @media (max-width: 768px) {
-        width: 95%;
         font-size: 2vw;
 
         input{
+            width: 90%;
             font-size: 2vw;
         }
     }
