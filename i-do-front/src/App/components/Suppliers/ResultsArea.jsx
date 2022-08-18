@@ -51,6 +51,8 @@ export default function ResultsArea() {
                         return <Card key={index} result={result} />
                     })}
                     <Pagination
+                        boundaryCount={0}
+                        siblingCount={2}
                         count={results.count}
                         showFirstButton
                         onChange={(e, p) => setPage({...page, p, index: (p - 1) * PER_PAGE + 1})}
