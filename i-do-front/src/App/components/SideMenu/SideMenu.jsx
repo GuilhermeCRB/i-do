@@ -5,10 +5,10 @@ import Menu from "./Menu";
 import { MenuContext } from "../../../Contexts/MenuContext";
 
 
-export default function SideMenu(){
+export default function SideMenu() {
     const { active, setActive } = useContext(MenuContext);
 
-    return(
+    return (
         <MenuDiv>
             <Menu />
             <BackDrop className={active ? "" : "display-backdrop"} onClick={() => setActive(!active)} />
@@ -17,15 +17,14 @@ export default function SideMenu(){
 }
 
 const MenuDiv = styled.div`
-    width: 100%;
     display: flex;
 
     .display-menu{
         width: 30vw;
 
         @media (max-width: 425px) {
-        width: 50vw;
-    }
+            width: 50vw;
+        }
     }
 
     .display-backdrop{

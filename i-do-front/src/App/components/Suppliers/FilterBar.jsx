@@ -64,6 +64,7 @@ const ButtonFilters = styled.div`
     justify-content: space-between;
 
     button{
+        z-index: 1;
         min-width: var(--button-width);
         height: var(--button-height);
         font-family: var(--main-font);
@@ -78,6 +79,7 @@ const ButtonFilters = styled.div`
         }
 
         @media (max-width: 768px) {
+            z-index: 0;
             font-size: 2vw;
         }
     }
