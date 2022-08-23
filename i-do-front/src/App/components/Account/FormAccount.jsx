@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 import { TailSpin } from "react-loader-spinner";
 import jwt_decode from "jwt-decode";
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
 import styled from "styled-components";
 import axios from "axios";
-
-import ChangePassword from "./ChangePassword";
 
 import UrlContext from "../../../Contexts/UrlContext";
 
@@ -21,30 +22,44 @@ export default function FormAccount() {
 
     const [userData, setUserData] = useState(user);
     const [formState, setFormState] = useState(false);
+    const [open, setOpen] = useState(false);
     const BASE_BACK_URL = useContext(UrlContext);
+
+    const config = {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    };
 
     function sendData(e) {
         e.preventDefault();
         setFormState(true);
 
         const URL = BASE_BACK_URL + 'account/update';
-        const promise = axios.post(URL, userData);
+        const promise = axios.post(URL, userData, config);
 
         promise.then(() => {
-            //   window.location.reload(true);
+            setOpen(false);
+            setFormState(false);
+              window.location.reload(true);
         });
 
         promise.catch(err => {
-            //   alert(err.response.data);
-            //   console.log(err);
-            //   setFormState(false);
+            alert(err.response.data);
+            console.log(err);
+              setFormState(false);
         });
 
     };
 
+    function handleOpen(e){
+        e.preventDefault();
+        setOpen(true);
+    }
+
     return (
         <>
-            <Form onSubmit={sendData}>
+            <Form onSubmit={e => handleOpen(e)}>
                 <InputDiv>
                     <p>Your name: </p>
                     <input
@@ -89,13 +104,29 @@ export default function FormAccount() {
                         onChange={e => setUserData({ ...userData, partner2Email: e.target.value })}
                     />
                 </InputDiv>
-                {/* <ChangePassword /> */}
                 <button type="submit" disabled={formState}>
                     {formState ? <TailSpin color="#FFF" /> : "Update account"}
                 </button>
             </Form>
+            <Dialog open={open} onClose={() => setOpen(false)} maxWidth={false}>
+                <DialogContentStyle>
+                    <p>
+                        Please, confirm your password to update your account.
+                    </p>
+                    <input
+                        autoFocus
+                        placeholder="password"
+                        type="password"
+                        value={userData.password}
+                        onChange={e => setUserData({ ...userData, password: e.target.value })}
+                    />
+                </DialogContentStyle>
+                <DialogActionsStyle>
+                    <button onClick={() => setOpen(false)}>Cancel</button>
+                    <button onClick={e => sendData(e)}>Confirm</button>
+                </DialogActionsStyle>
+            </Dialog>
         </>
-
     )
 
 }
@@ -160,6 +191,56 @@ const InputDiv = styled.div`
 
         @media (max-width: 425px) {
             margin-bottom: 0;
+        }
+    }
+`
+
+const DialogContentStyle = styled(DialogContent)`
+    &&{
+        padding: 3vh 5vw;
+        background-color: var(--background-modal);
+
+        p{
+            font-size: 2vw;
+            margin-bottom: 7vh;
+            color: var(--modal-color);
+        }
+
+        input{
+            width: 100%;
+            margin-bottom: 2.5%;
+            border: none;
+            border-radius: 6px;
+            padding: 1.5% 4%;
+            font-size: 2vw;
+            font-weight: 700;
+            color: var(--placeholder-color);
+            background-color: var(--background-input);
+
+            ::placeholder{
+                font-size: 2vw;
+                font-weight: 700;
+                color: var(--placeholder-color);
+            }
+        }
+    }
+`
+
+const DialogActionsStyle = styled(DialogActions)`
+    &&{
+        padding-right: 5vw;
+        background-color: var(--background-modal);
+
+        button{
+            width: 20%;
+            padding: 1% 0;
+            margin-bottom: 2vh;
+            border: none;
+            border-radius: 6px;
+            background-color: var(--background-button);
+            font-size: 1.6vw;
+            font-weight: 700;  
+            font-family: var(--input-font);
         }
     }
 `

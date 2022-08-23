@@ -20,8 +20,6 @@ function App() {
     :
     BASE_BACK_URL = process.env.REACT_APP_BASE_PROD_URL
 
-  console.log(BASE_BACK_URL)
-
   return (
     <UrlContext.Provider value={BASE_BACK_URL}>
       <UserProvider>

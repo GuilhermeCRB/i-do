@@ -2,15 +2,17 @@
   box-sizing: border-box;
 
   --background-access: #590902;
-  --background-button: #590902;
   --background-sign: #590902;
   --background-header: #590902;
+  --background-modal: #590902;
+  --modal-button: #590902;
   --background-page: #BACBD9;
   --nav-hover: #BACBD9;
   --placeholder-color: #BACBD9;
   --background-input: #FFF;
   --background-card: #FFF;
   --background-button: #FFF;
+  --modal-color: #FFF;
   --icon-color: #8C7561;
   --link-color: #402A22;
   --backdrop: rgba(0,0,0,0.6);
