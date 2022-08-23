@@ -10,7 +10,7 @@ import UrlContext from "../../../Contexts/UrlContext";
 
 export default function FormAccount() {
     const token = localStorage.getItem("i_do_token");
-    const {partner1, partner2, partner1Email, partner2Email} = jwt_decode(token);
+    const { partner1, partner2, partner1Email, partner2Email } = jwt_decode(token);
 
     const user = {
         partner1,
@@ -31,69 +31,69 @@ export default function FormAccount() {
         const promise = axios.post(URL, userData);
 
         promise.then(() => {
-        //   window.location.reload(true);
+            //   window.location.reload(true);
         });
 
         promise.catch(err => {
-        //   alert(err.response.data);
-        //   console.log(err);
-        //   setFormState(false);
+            //   alert(err.response.data);
+            //   console.log(err);
+            //   setFormState(false);
         });
 
     };
 
     return (
         <>
-        <Form onSubmit={sendData}>
-            <InputDiv>
-                <p>Your name: </p>
-                <input
-                required
-                type='text'
-                placeholder="name"
-                disabled={formState}
-                value={userData.partner1}
-                onChange={e => setUserData({ ...userData, partner1: e.target.value })}
-                />
-            </InputDiv>
-            <InputDiv>
-                <p>Your partner's name: </p>
-                <input
-                required
-                type='text'
-                placeholder="partner's name"
-                disabled={formState}
-                value={userData.partner2}
-                onChange={e => setUserData({ ...userData, partner2: e.target.value })}
-                />
-            </InputDiv>
-            <InputDiv>
-                <p>Your email: </p>
-                <input
-                required
-                type='email'
-                placeholder="email"
-                disabled={formState}
-                value={userData.partner1Email}
-                onChange={e => setUserData({ ...userData, partner1Email: e.target.value })}
-                />
-            </InputDiv>
-            <InputDiv>
-                <p>Your partner's email: </p>
-                <input
-                required
-                type="email"
-                placeholder="partner's email"
-                disabled={formState}
-                value={userData.partner2Email}
-                onChange={e => setUserData({ ...userData, partner2Email: e.target.value })}
-                />
-            </InputDiv>
-            <ChangePassword />
-            <button type="submit" disabled={formState}>
-            {formState ? <TailSpin color="#FFF" /> : "Update account"}
-            </button>
-        </Form>
+            <Form onSubmit={sendData}>
+                <InputDiv>
+                    <p>Your name: </p>
+                    <input
+                        required
+                        type='text'
+                        placeholder="name"
+                        disabled={formState}
+                        value={userData.partner1}
+                        onChange={e => setUserData({ ...userData, partner1: e.target.value })}
+                    />
+                </InputDiv>
+                <InputDiv>
+                    <p>Your partner's name: </p>
+                    <input
+                        required
+                        type='text'
+                        placeholder="partner's name"
+                        disabled={formState}
+                        value={userData.partner2}
+                        onChange={e => setUserData({ ...userData, partner2: e.target.value })}
+                    />
+                </InputDiv>
+                <InputDiv>
+                    <p>Your email: </p>
+                    <input
+                        required
+                        type='email'
+                        placeholder="email"
+                        disabled={formState}
+                        value={userData.partner1Email}
+                        onChange={e => setUserData({ ...userData, partner1Email: e.target.value })}
+                    />
+                </InputDiv>
+                <InputDiv>
+                    <p>Your partner's email: </p>
+                    <input
+                        required
+                        type="email"
+                        placeholder="partner's email"
+                        disabled={formState}
+                        value={userData.partner2Email}
+                        onChange={e => setUserData({ ...userData, partner2Email: e.target.value })}
+                    />
+                </InputDiv>
+                {/* <ChangePassword /> */}
+                <button type="submit" disabled={formState}>
+                    {formState ? <TailSpin color="#FFF" /> : "Update account"}
+                </button>
+            </Form>
         </>
 
     )

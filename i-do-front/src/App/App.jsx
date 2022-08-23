@@ -14,24 +14,29 @@ import { FilterProvider } from "../Contexts/FilterContext";
 import UrlContext from "../Contexts/UrlContext";
 
 function App() {
-  const BASE_BACK_URL = "http://localhost:5000/";
-  // const BASE_BACK_URL = "https://i-do-gui.herokuapp.com/";
+  let BASE_BACK_URL;
+  process.env.REACT_APP_MODE === "DEV" ?
+    BASE_BACK_URL = process.env.REACT_APP_BASE_DEV_URL
+    :
+    BASE_BACK_URL = process.env.REACT_APP_BASE_PROD_URL
+
+  console.log(BASE_BACK_URL)
 
   return (
     <UrlContext.Provider value={BASE_BACK_URL}>
       <UserProvider>
         <MenuProvider>
           <FilterProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/sign-in" element={<SignIn />} />
-              <Route path="/sign-up" element={<SignUp />} />
-              <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
-              <Route path="/suppliers" element={<PrivateRoute><Suppliers /></PrivateRoute>} />
-              <Route path="/account" element={<PrivateRoute><Account /></PrivateRoute>} />
-              <Route path="/budget" element={<PrivateRoute><Budget /></PrivateRoute>} />
-            </Routes>
-          </BrowserRouter>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/sign-in" element={<SignIn />} />
+                <Route path="/sign-up" element={<SignUp />} />
+                <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
+                <Route path="/suppliers" element={<PrivateRoute><Suppliers /></PrivateRoute>} />
+                <Route path="/account" element={<PrivateRoute><Account /></PrivateRoute>} />
+                <Route path="/budget" element={<PrivateRoute><Budget /></PrivateRoute>} />
+              </Routes>
+            </BrowserRouter>
           </FilterProvider>
         </MenuProvider>
       </UserProvider>

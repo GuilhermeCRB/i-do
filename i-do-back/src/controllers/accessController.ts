@@ -8,7 +8,7 @@ export async function signUp(req: Request, res: Response) {
     res.sendStatus(201);
 }
 
-export async function signIn(res: Response) {
+export async function signIn(req: Request, res: Response) {
     const user: SignIn = res.locals.data;
     const token = await accessService.signInUser(user);
     res.status(200).send({ token });
