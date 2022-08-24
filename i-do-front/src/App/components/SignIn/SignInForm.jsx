@@ -23,7 +23,6 @@ export default function SignInForm() {
   function sendData(e) {
     e.preventDefault();
     setFormState(true);
-    console.log(userData)
 
     const URL = BASE_BACK_URL + 'sign-in';
     const promise = axios.post(URL, userData);

@@ -32,10 +32,26 @@ async function getUserByEmail(email: string) {
     });
 }
 
+async function updateUserData(user: CreateUser, email: string) {
+    return await db.user.update({
+        where: {
+            partner1Email: email
+        },
+
+        data:{
+            partner1: user.partner1,
+            partner2: user.partner2,
+            partner1Email: user.partner1Email,
+            partner2Email: user.partner2Email,
+        }
+    });
+}
+
 const accessRepository = {
     saveUserData,
     findByEmail,
-    getUserByEmail
+    getUserByEmail,
+    updateUserData
 }
 
 export default accessRepository;
