@@ -8,6 +8,7 @@ import styled from "styled-components";
 import axios from "axios";
 
 import UrlContext from "../../../Contexts/UrlContext";
+import { UserContext } from "../../../Contexts/UserContext";
 
 export default function FormAccount() {
     const token = localStorage.getItem("i_do_token");
@@ -20,6 +21,7 @@ export default function FormAccount() {
         partner2Email
     };
 
+    const { setToken } = useContext(UserContext);
     const [userData, setUserData] = useState(user);
     const [formState, setFormState] = useState(false);
     const [open, setOpen] = useState(false);
@@ -38,21 +40,22 @@ export default function FormAccount() {
         const URL = BASE_BACK_URL + 'account/update';
         const promise = axios.post(URL, userData, config);
 
-        promise.then(() => {
+        promise.then(({ data }) => {
             setOpen(false);
             setFormState(false);
-              window.location.reload(true);
+            localStorage.setItem("i_do_token", data.token);
+            setToken(data.token);
         });
 
         promise.catch(err => {
             alert(err.response.data);
             console.log(err);
-              setFormState(false);
+            setFormState(false);
         });
 
     };
 
-    function handleOpen(e){
+    function handleOpen(e) {
         e.preventDefault();
         setOpen(true);
     }
@@ -241,6 +244,10 @@ const DialogActionsStyle = styled(DialogActions)`
             font-size: 1.6vw;
             font-weight: 700;  
             font-family: var(--input-font);
+
+            :hover{
+            cursor: pointer;
+        }
         }
     }
 `
