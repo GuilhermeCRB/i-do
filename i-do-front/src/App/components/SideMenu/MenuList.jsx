@@ -49,7 +49,6 @@ const Category = styled.li`
     align-items: center;
     margin-top: 3vh;
     padding: 1vh 0.5vw;
-    font-size: 18px;
     color: var(--icon-color);
 
     svg{

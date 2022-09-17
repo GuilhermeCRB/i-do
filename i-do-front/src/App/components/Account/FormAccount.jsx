@@ -141,10 +141,6 @@ const Form = styled.form`
     flex-direction:column;
     font-family: var(--input-font);
 
-    p{
-        font-size: 1.5vw;
-    }
-
     input{
         width: 100%;
         margin-bottom: 2.5%;
@@ -152,12 +148,10 @@ const Form = styled.form`
         border-radius: 6px;
         padding: 1.5% 2%;
         font-weight: 700; 
-        font-size: 1.5vw;
         color: var(--placeholder-color);
         background-color: var(--background-input);
 
         ::placeholder{
-            font-size: 1.5vw;
             color: var(--placeholder-color);
         }
     }
@@ -168,9 +162,7 @@ const Form = styled.form`
         border-radius: 6px;
         background-color: var(--background-sign);
         color: var(--background-input);
-        font-size: 1.5vw;
         font-weight: 700;  
-        font-family: var(--input-font);
 
         svg{
             margin: auto;
@@ -204,7 +196,6 @@ const DialogContentStyle = styled(DialogContent)`
         background-color: var(--background-modal);
 
         p{
-            font-size: 2vw;
             margin-bottom: 7vh;
             color: var(--modal-color);
         }
@@ -215,13 +206,11 @@ const DialogContentStyle = styled(DialogContent)`
             border: none;
             border-radius: 6px;
             padding: 1.5% 4%;
-            font-size: 2vw;
             font-weight: 700;
             color: var(--placeholder-color);
             background-color: var(--background-input);
 
             ::placeholder{
-                font-size: 2vw;
                 font-weight: 700;
                 color: var(--placeholder-color);
             }
@@ -241,9 +230,7 @@ const DialogActionsStyle = styled(DialogActions)`
             border: none;
             border-radius: 6px;
             background-color: var(--background-button);
-            font-size: 1.6vw;
             font-weight: 700;  
-            font-family: var(--input-font);
 
             :hover{
             cursor: pointer;

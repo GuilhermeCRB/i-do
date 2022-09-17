@@ -27,7 +27,6 @@ const Main = styled.main`
     margin: 5vh 0 2vh var(--nav-width);
 
     h2{
-        font-size: 1.5vw;
         font-weight: 700;
     }
 

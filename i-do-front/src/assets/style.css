@@ -28,12 +28,48 @@
   --card-padding: 1vw;
   --nav-width: 15vw;
   --search-box: 5vh;
+
+  --h2-max: 2rem;
+  --h2-min: 1rem;
+  --h2-size: clamp(var(--h2-min), 1rem + 0.7vw, var(--h2-max));
+  --h3-max: 2rem;
+  --h3-min: 0.5rem;
+  --h3-size: clamp(var(--h3-min), 1rem + 0.4vw, var(--h3-max));
+  --h4-max: 1rem;
+  --h4-min: 0.25rem;
+  --h4-size: clamp(var(--h4-min), 1rem + 0.3vw, var(--h4-max));
+  --p-max: 1rem;
+  --p-min: 0.25rem;
+  --p-size: clamp(var(--p-min), 1rem + 0.4vw, var(--p-max));
+  --input-max: 1rem;
+  --input-min: 0.25rem;
+  --input-size: clamp(var(--input-min), 1rem + 0.3vw, var(--input-max));
+  --button-max: 1rem;
+  --button-min: 0.25rem;
+  --button-size: clamp(var(--button-min), 1rem + 0.3vw, var(--button-max));
 }
 
 html, body, .root{
   font-family: var(--main-font);
+  font-size: 16px;
   background-color: var(--background-page);
 };
+
+body h2{
+  font-size: var(--h2-size);
+}
+
+body h3{
+  font-size: var(--h3-size);
+}
+
+body h4{
+  font-size: var(--h4-size);
+}
+
+body p{
+  font-size: var(--p-size);
+}
 
 body a{
   text-decoration: none;
@@ -41,8 +77,15 @@ body a{
 
 body input{
   font-family: var(--main-font);
+  font-size: var(--input-size);
 }
 
 body input::placeholder{
   font-family: var(--main-font);
+  font-size: var(--input-size);
+}
+
+body button{
+  font-family: var(--main-font);
+  font-size: var(--button-size);
 }

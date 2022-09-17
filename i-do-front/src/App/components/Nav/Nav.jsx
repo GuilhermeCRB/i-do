@@ -102,7 +102,6 @@ const SearchBox = styled.input`
     padding-left: 2.5vw;
     border: none;
     border-radius: 12px;
-    font-size: 1.2vw;
     color: var(--icon-color);
 
     ::placeholder{

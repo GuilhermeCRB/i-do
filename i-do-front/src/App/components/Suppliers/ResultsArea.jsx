@@ -83,14 +83,19 @@ const ResultsWrapper = styled.div`
 
 const CountWrapper = styled.div`
     width: var(--card-width);
+
+    @media (max-width: 425px) {
+        width: 100%;
+    }
 `
 
 const ResultsCount = styled.p`
     margin-bottom: 2vh;
-    font-size: 1.2vw;
+    font-size: calc(1rem + 0.3vw);
     color: var(--icon-color);
 
-    @media (max-width: 768px) {
-        font-size: 2vw;
+    @media (max-width: 425px) {
+        width: 100%;
+        font-size: 0.6rem;
     }
 `
