@@ -28,6 +28,5 @@ const Main = styled.main`
 
     @media (max-width: 768px) {
         margin: 0 auto;
-        margin-top: calc(var(--header-height) + var(--search-box));
     }
 `

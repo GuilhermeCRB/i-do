@@ -29,6 +29,10 @@ export default function FilterBar() {
 const FilterWrapper = styled.div`
     width: var(--card-width);
     margin-bottom: 8vh;
+
+    @media (max-width: 425px) {
+        width: 100%;
+    }
 `
 
 const LocationFilter = styled.div`
@@ -37,24 +41,17 @@ const LocationFilter = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-bottom: 3vh;
-    font-size: 1.3vw;
 
     input{
         width: 95%;
         height: 5vh;
         padding: 0 1vw;
-        font-size: 1.3vw;
         border: none;
         border-radius: 5px;
         box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    }
-
-    @media (max-width: 768px) {
-        font-size: 2vw;
-
-        input{
+    
+        @media (max-width: 768px) {
             width: 90%;
-            font-size: 2vw;
         }
     }
 `
@@ -68,7 +65,6 @@ const ButtonFilters = styled.div`
         min-width: var(--button-width);
         height: var(--button-height);
         font-family: var(--main-font);
-        font-size: 1.3vw;
         border: none;
         border-radius: 1vh;
         box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
@@ -81,6 +77,11 @@ const ButtonFilters = styled.div`
         @media (max-width: 768px) {
             z-index: 0;
             font-size: 2vw;
+        }
+
+        @media (max-width: 425px) {
+            width: 24%;
+            font-size: 0.7rem;
         }
     }
 `

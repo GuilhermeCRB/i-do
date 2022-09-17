@@ -144,7 +144,7 @@ const SmallSearchDiv = styled.div`
 
     svg{
         position: absolute;
-        top: 1.3vh;
+        top: 1.5vh;
         left: 3vw;
         font-size: 3.5vw;
         color: var(--icon-color);
@@ -156,11 +156,9 @@ const SmallSearchBox = styled.input`
     width: 100%;
     padding-left: 9vw;
     border: none;
-    font-size: 3vw;
     color: var(--icon-color);
 
     ::placeholder{
-        font-size: 3vw;
         color: var(--icon-color);
     }
 `

@@ -27,6 +27,10 @@ const CardArea = styled.div`
     padding: var(--card-padding);
     background-color: var(--background-card);
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 425px) {
+        width: 100%;
+    }
 `
 
 const DivImg = styled.a`
@@ -56,28 +60,19 @@ const SiteInfo = styled.div`
     text-align: justify;
 `
 
-const Title = styled.h2`
-    font-size: 1.5vw;
+const Title = styled.h3`
     font-weight: 700;
     margin-bottom: 2vh;
-    
-    @media (max-width: 768px) {
-        font-size: 2vw;
-    }
 `
 
-const Snippet = styled.p`
-    font-size: 1.3vw;
-
-    @media (max-width: 768px) {
-        font-size: 2vw;
-    }
+const Snippet = styled.h4`
+    
 `
 
 const Link = styled.a`
     position: absolute;
     bottom: 4vh;
-    font-size: 1.3vw;
+    font-size: calc(1rem + 0.3vw);
     color: var(--link-color);
 
     :hover{
@@ -85,6 +80,10 @@ const Link = styled.a`
     }
 
     @media (max-width: 768px) {
-        font-size: 2vw;
+        font-size: calc(1rem);
+    }
+
+    @media (max-width: 425px) {
+        font-size: calc(0.8rem);
     }
 `
