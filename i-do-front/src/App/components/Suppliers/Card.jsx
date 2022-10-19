@@ -61,15 +61,25 @@ const SiteInfo = styled.div`
 `
 
 const Title = styled.h3`
-    font-weight: 700;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
     margin-bottom: 2vh;
+    font-weight: 700;
+    overflow: hidden;
 `
 
 const Snippet = styled.h4`
-    
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
 `
 
 const Link = styled.a`
+    width: 48%;     
+    overflow: hidden;
+    text-overflow: ellipsis;
     position: absolute;
     bottom: 4vh;
     font-size: calc(1rem + 0.3vw);
