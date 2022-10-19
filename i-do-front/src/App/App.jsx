@@ -3,10 +3,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import SignUp from "./components/SignUp/SignUp";
 import SignIn from "./components/SignIn/SignIn";
-import Home from "./components/Home/Home";
+import Page from "../App/components/Pages/Page";
+import Home from "./components/Pages/Home/Home";
 import Suppliers from "./components/Suppliers/Suppliers";
 import Account from "./components/Account/Account";
-import Budget from "./components/Budget/Budget";
+import Budget from "./components/Pages/Budget/Budget";
 
 import { UserProvider } from "../Contexts/UserContext";
 import { MenuProvider } from "../Contexts/MenuContext";
@@ -29,10 +30,18 @@ function App() {
               <Routes>
                 <Route path="/sign-in" element={<SignIn />} />
                 <Route path="/sign-up" element={<SignUp />} />
-                <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
-                <Route path="/suppliers" element={<PrivateRoute><Suppliers /></PrivateRoute>} />
-                <Route path="/account" element={<PrivateRoute><Account /></PrivateRoute>} />
-                <Route path="/budget" element={<PrivateRoute><Budget /></PrivateRoute>} />
+
+                <Route path="/" element={
+                    <PrivateRoute>
+                      <Page />
+                    </PrivateRoute>
+                  }
+                >
+                  <Route path="" element={<Home />} />
+                  <Route path="suppliers" element={<Suppliers />} />
+                  <Route path="account" element={<Account />} />
+                  <Route path="budget" element={<Budget />} />
+                </Route>
               </Routes>
             </BrowserRouter>
           </FilterProvider>
