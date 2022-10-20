@@ -1,20 +1,10 @@
 import styled from "styled-components";
 
-import Nav from "../Nav/Nav";
-import Header from "../Header/Header";
-import SideMenu from "../SideMenu/SideMenu";
 import AccountInfo from "./AccountInfo";
 
 export default function Account() {
     return (
-        <>
-            <Header />
-            <Nav />
-            <SideMenu />
-            <Main>
-                <AccountInfo />
-            </Main>
-        </>
+        <Main><AccountInfo /></Main>
     )
 }
 

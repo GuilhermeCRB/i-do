@@ -7,8 +7,8 @@ import DialogContent from '@mui/material/DialogContent';
 import styled from "styled-components";
 import axios from "axios";
 
-import UrlContext from "../../../Contexts/UrlContext";
-import { UserContext } from "../../../Contexts/UserContext";
+import UrlContext from "../../../../Contexts/UrlContext";
+import { UserContext } from "../../../../Contexts/UserContext";
 
 export default function FormAccount() {
     const token = localStorage.getItem("i_do_token");

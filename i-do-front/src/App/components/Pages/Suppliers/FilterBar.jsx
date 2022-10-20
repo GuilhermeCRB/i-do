@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import styled from "styled-components";
 
-import { FilterContext } from "../../../Contexts/FilterContext";
+import { FilterContext } from "../../../../Contexts/FilterContext";
 
 export default function FilterBar() {
     const {filter, setFilter} = useContext(FilterContext);

@@ -5,8 +5,8 @@ import SignUp from "./components/SignUp/SignUp";
 import SignIn from "./components/SignIn/SignIn";
 import Page from "../App/components/Pages/Page";
 import Home from "./components/Pages/Home/Home";
-import Suppliers from "./components/Suppliers/Suppliers";
-import Account from "./components/Account/Account";
+import Suppliers from "./components/Pages/Suppliers/Suppliers";
+import Account from "./components/Pages/Account/Account";
 import Budget from "./components/Pages/Budget/Budget";
 
 import { UserProvider } from "../Contexts/UserContext";

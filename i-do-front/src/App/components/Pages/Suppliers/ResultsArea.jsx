@@ -7,8 +7,8 @@ import axios from "axios";
 import Card from "./Card";
 import FilterBar from "./FilterBar";
 
-import UrlContext from "../../../Contexts/UrlContext";
-import { FilterContext } from "../../../Contexts/FilterContext";
+import UrlContext from "../../../../Contexts/UrlContext";
+import { FilterContext } from "../../../../Contexts/FilterContext";
 
 export default function ResultsArea() {
     const BASE_BACK_URL = useContext(UrlContext);

@@ -1,20 +1,10 @@
 import styled from "styled-components";
 
-import Nav from "../Nav/Nav";
-import Header from "../Header/Header";
-import SideMenu from "../SideMenu/SideMenu";
 import ResultsArea from "./ResultsArea";
 
 export default function Suppliers() {
     return (
-        <>
-            <Header />
-            <Nav />
-            <SideMenu />
-            <Main>
-                <ResultsArea />
-            </Main>
-        </>
+        <Main><ResultsArea /></Main>
     )
 }
 

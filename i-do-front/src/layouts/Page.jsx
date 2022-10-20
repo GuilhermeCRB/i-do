@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export default function Page({children}) {
   return (
-    <Main>{children}</Main>
+    <Div>{children}</Div>
   );
 }
 
-const Main = styled.main`
+const Div = styled.main`
     display: flex;
 
     h6{
